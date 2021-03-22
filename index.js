@@ -3,16 +3,10 @@ let userArray = []
 let indexToCompare = 0
 let gameLevel = 0
 
-// this variable is just to avoid more keypresses during game
-let gameInProgress = false
 
 // starts game
 function startGame() {
-    // this is to avoid accidental new element being added to challenge-array
-    if (!gameInProgress) {
-        randomNumber()
-        gameInProgress = true
-    }
+    randomNumber()
 }
 
 // adds click listener on divs
@@ -105,16 +99,16 @@ function compareArrays(color) {
 }
 
 
-// this plays the game over sound and animation
+// this plays the game-over sound and animation
 function gameOver() {
-    // change level title to game over
+    // change level title to game-over
     $('#level-title').html('Game Over, Press <input type="button" class="button" value="This Button" onclick="startGame()"> to Restart')
 
-    // play game over sound
+    // play game-over sound
     let gameOverSound = new Audio('sounds/wrong.mp3')
     gameOverSound.play()
 
-    // animate game over background
+    // animate game-over background
     $('body').addClass('game-over-background')
     setTimeout(function() {
         $('body').removeClass('game-over-background')
@@ -130,5 +124,4 @@ function resetValues() {
     userArray = []
     indexToCompare = 0
     gameLevel = 0
-    gameInProgress = false
 }
